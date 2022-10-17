@@ -1,0 +1,162 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="adicionar_filtros" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="arg_in_strDataDe" Type="InArgument(x:String)" />
+    <x:Property Name="arg_in_strDataAte" Type="InArgument(x:String)" />
+    <x:Property Name="arg_in_strTermoPesquisa" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:adicionar_filtros.arg_in_strDataDe>
+    <InArgument x:TypeArguments="x:String" />
+  </this:adicionar_filtros.arg_in_strDataDe>
+  <this:adicionar_filtros.arg_in_strDataAte>
+    <InArgument x:TypeArguments="x:String" />
+  </this:adicionar_filtros.arg_in_strDataAte>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1100.66666666667,1800.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>adicionar_filtros_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Entrada:&#xA;arg_in_strDataAte - Informa a data até para utilizar no campo de data de publicacao&#xA;arg_in_strDataDe - Informa a data de para utilizar no campo de data de publicacao&#xA;arg_in_strTermoPesquisa - Informa o termo de pesquisa utilizado no campo objeto&#xA;&#xA;Processamento: Adiciona os filtros Data de publicacao, Objeto e Modalidade&#xA;&#xA;Saida:" DisplayName="adicionar_filtros" sap:VirtualizedContainerService.HintSize="476,1736" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: ComprasNet" sap:VirtualizedContainerService.HintSize="434,1448.66666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1230.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Período de Publicação'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,220" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Text="[arg_in_strDataDe]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Filtro.asp" DesignTimeRectangle="308, 257, 123, 19" ElementType="InputBox" FriendlyName="'INPUT dt_publ_ini'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' type='text' name='dt_publ_ini' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl class='tcal tcalInput' tag='INPUT' type='text' name='dt_publ_ini' aaname='' /&gt;" Guid="a3781e5e-583c-4664-b27e-7af60ec8b13c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH8AAAAXCAYAAAAiGpAkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC8SURBVGhD7dbRCYMwFIXhrpJ1TLqOG9mFCq6T9tYkBGlE2pfenv+HA0HElw/FSybZwBeu4YcQmMBijEUcfKkZ/DzPRfwNPv1my235eNN1ej3D4MF32IY43h68H/jO2xDH24P3A995hlhb72s5nTuD7zzwhTN8Az3a8kTuV6+D77wzb76B1/oz+M4DXzg++8Lxwycc+MKd+eyPBr7zePOFA184A/xm1iF+SqndwP53tYYPvM5qDZ/0Al+2nB93eDgJiRj5OgAAAABJRU5ErkJggg==" InformativeScreenshot="af9d54a8a72719be41a0e8136cb38c99.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ComprasNet' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="43, 255, 255, 23" ElementType="Text" FriendlyName="'Período de Publicação'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl isleaf='1' parentid='frmLicitacao' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' parentid='frmLicitacao' type='' tag='TD' class='tex3b' aaname='Período de Publicação ' check:innerText='Período de Publicação' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQMAAAAbCAYAAAB4I+qJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKySURBVHhe7ZdrjqswDEZZY6XZUMVW2qXMLKQ/ugxuMDg4TiChDwlxz5FcKQQcx7U/QjcAAAQQAwAQEAMAEBADABAQAwAQEAMAEBADABAQAwAQEAMAEBADqPK8X4au64bL/TlfaeSvl+e6n9uw88mcT/raSW3/v9cQV5jv/+YL3+ZxGy4xF79D3/Xh930QgzOhReJsdxNbxOdluD3m8R6OIgZv5mWXGMS1PtOgJcZ4JBbNyfUzKyEGZyJ5Y4w8h9uPKdRXeDxfb+SjicGLeTncyeBLIAZnIiv6pVBjIWtTqRXu7e+zn/DGyRthaaTJ3KnB+x+tsIbaZgPt9LXWrNW8+Hk3jjm49tN1e28g5k32Mh7bx7E5GWT7mOZ8/D6X2bycANS/MRPLiH+uVaQQgzOx+gaci2wuSm0a3+il4kvvcf584ev6OtYmmONJm8b7cjT50mcbfa3lxc+7sebA78PnrSgGLu5VVnKla6yxHUslLw7E4EzEBrK2FIIWSmbzN2daSBOJGPgGDdhnYtPoN2xS4NokSzxejCxtvnKzsUcqeWkVgxinxlLMWyoGOlds6lJcK7myxNwYm/zvy7EHMTgTvqgdm4UZaBYD478kBtF/sYEXIdkq1DZf5WbJqOQlm3fj1VjeEgO3h2TNjf0lefCx7cuxBzE4E7Wi10IyxSLPtJ4MgtfNzwRXqH6c+q8cYRt9xZNDYIzVxh6p5UXndR/uft9QPk/puJITpbKm+vRNrLHovrdj4zPh/6VW9CNanNaaxUCuzAWmlhZaLFZrJh5dQ63YvDN7fY1W9NeQl5Ivvb8Uh23SNG/52znP+TS3teZINi//k/pPrRSP2laOLYgBwMGR5jYnoG+BGAAclXiiaDvmvwtiAAACYgAAAmIAAAJiAAACYgAAAmIAAAJiAACBYfgHzMPld/AxVGwAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Período de Publicação'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,220" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Text="[arg_in_strDataAte]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Filtro.asp" DesignTimeRectangle="708, 257, 123, 19" ElementType="InputBox" FriendlyName="'INPUT dt_publ_fim'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='dt_publ_fim' tableRow='2' tag='INPUT' type='text' name='dt_publ_fim' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='dt_publ_fim' class='tcal tcalInput' tag='INPUT' type='text' name='dt_publ_fim' aaname='' /&gt;" Guid="48577e66-e41d-4c75-8ccf-b7ca3f0b13a4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH8AAAAXCAYAAAAiGpAkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC8SURBVGhD7dbRCYMwFIXhrpJ1TLqOG9mFCq6T9tYkBGlE2pfenv+HA0HElw/FSybZwBeu4YcQmMBijEUcfKkZ/DzPRfwNPv1my235eNN1ej3D4MF32IY43h68H/jO2xDH24P3A995hlhb72s5nTuD7zzwhTN8Az3a8kTuV6+D77wzb76B1/oz+M4DXzg++8Lxwycc+MKd+eyPBr7zePOFA184A/xm1iF+SqndwP53tYYPvM5qDZ/0Al+2nB93eDgJiRj5OgAAAABJRU5ErkJggg==" InformativeScreenshot="922eeef3be44f003b31c277287b6b0c8.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ComprasNet' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="43, 255, 255, 23" ElementType="Text" FriendlyName="'Período de Publicação'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl isleaf='1' parentid='frmLicitacao' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' parentid='frmLicitacao' type='' tag='TD' class='tex3b' aaname='Período de Publicação ' check:innerText='Período de Publicação' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQMAAAAbCAYAAAB4I+qJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKySURBVHhe7ZdrjqswDEZZY6XZUMVW2qXMLKQ/ugxuMDg4TiChDwlxz5FcKQQcx7U/QjcAAAQQAwAQEAMAEBADABAQAwAQEAMAEBADABAQAwAQEAMAEBADqPK8X4au64bL/TlfaeSvl+e6n9uw88mcT/raSW3/v9cQV5jv/+YL3+ZxGy4xF79D3/Xh930QgzOhReJsdxNbxOdluD3m8R6OIgZv5mWXGMS1PtOgJcZ4JBbNyfUzKyEGZyJ5Y4w8h9uPKdRXeDxfb+SjicGLeTncyeBLIAZnIiv6pVBjIWtTqRXu7e+zn/DGyRthaaTJ3KnB+x+tsIbaZgPt9LXWrNW8+Hk3jjm49tN1e28g5k32Mh7bx7E5GWT7mOZ8/D6X2bycANS/MRPLiH+uVaQQgzOx+gaci2wuSm0a3+il4kvvcf584ev6OtYmmONJm8b7cjT50mcbfa3lxc+7sebA78PnrSgGLu5VVnKla6yxHUslLw7E4EzEBrK2FIIWSmbzN2daSBOJGPgGDdhnYtPoN2xS4NokSzxejCxtvnKzsUcqeWkVgxinxlLMWyoGOlds6lJcK7myxNwYm/zvy7EHMTgTvqgdm4UZaBYD478kBtF/sYEXIdkq1DZf5WbJqOQlm3fj1VjeEgO3h2TNjf0lefCx7cuxBzE4E7Wi10IyxSLPtJ4MgtfNzwRXqH6c+q8cYRt9xZNDYIzVxh6p5UXndR/uft9QPk/puJITpbKm+vRNrLHovrdj4zPh/6VW9CNanNaaxUCuzAWmlhZaLFZrJh5dQ63YvDN7fY1W9NeQl5Ivvb8Uh23SNG/52znP+TS3teZINi//k/pPrRSP2laOLYgBwMGR5jYnoG+BGAAclXiiaDvmvwtiAAACYgAAAmIAAAJiAAACYgAAAmIAAAJiAACBYfgHzMPld/AxVGwAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Objeto'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,220" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Text="[arg_in_strTermoPesquisa]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Filtro.asp" DesignTimeRectangle="305, 281, 212, 21" ElementType="InputBox" FriendlyName="'INPUT txtObjeto'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='INPUT' type='text' name='txtObjeto' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl class='' tag='INPUT' type='text' name='txtObjeto' aaname='' /&gt;" Guid="4972de43-cca0-49bb-b735-e4d1c7083b9e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANgAAAAZCAYAAABTlOD8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB2SURBVHhe7dMhDoAwAARBXt3vl2BIIShg3Uxy6vRuE8gIDEKXwMYYZvZxqzOw+wG8s7YkMPiZwCAkMAgJDEICg5DAICQwCAkMQgKDkMAgJDAICQxCAoOQwCAkMAgJDEICg5DAIPQY2OE4zOzbVpfAgH8JDDJz7kC3MRJMjn6LAAAAAElFTkSuQmCC" InformativeScreenshot="fbfd6f6962001b12557ca764332453c0.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ComprasNet' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="43, 279, 255, 25" ElementType="Text" FriendlyName="'Objeto'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl isleaf='1' parentid='frmLicitacao' tableRow='3' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl isleaf='1' parentid='frmLicitacao' type='' tag='TD' class='tex3b' aaname='Objeto ' check:innerText='Objeto' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQMAAAAdCAYAAACuegmUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGDSURBVHhe7dldboJAFIBR1kjSDRm2okvRhfjgMqZwYRj+1JpQw8M5ySQNFvRlPi5aJYCWGABBDIAgBkAQAyCIARDEAAhiAAQxAIIYAEEM4GuuqamqVFVN+9fxiAHs6HrqNvtk/ZzTY3jtfQwe6fzTn9fchkMvPC51/x6nfdIiBrCLvJHrdL4Ph+7nVM+CsO9kIAZwRLdmc2PmSaG+dDkoMWgmE0Q/BZSpoBxr5aCMawhJfr/Jyucsp5O/TBkdMYAd5Lt0v+mL+d07x2DYoONGL5NC3siz13NgFsHZmgxm529NKy+IAezgsxjkzb/erNPNPJ67XMNjxzoG+frles8+1xYxgD18+JjwUQwW18yex6BMGmIAX1ee+fsRvbV6DFhs1tUXjPMYlPOnY357jfz/GwHymAAHkTfjuDZ/WpyuchfvzDdzawzCZK1+nehXPmf5GcZrvSEGcBgb08UXiQEcwPj8360n3xH8NzEAghgAQQyAIAZAEAMgiAEQxAAIYgC0UvoF2PRBlfJe118AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NCheck Action="Check" DisplayName="Check/Uncheck 'Checkbox Todas'" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NCheck_1" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+              <uix:NCheck.Target>
+                <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Filtro.asp?numprp=&amp;dt_publ_ini=10/08/2022&amp;dt_publ_fim=12/08/2022&amp;chkModalidade=1,2,3,20,5,99&amp;chk_concor=31,32,41,42&amp;chk_pregao=1,2,3,4&amp;chk_rdc=1,2,3,4&amp;optTpPesqMat=M&amp;optTpPesqServ=S&amp;chkTodos=-1&amp;chk_concorTodos=-1&amp;chk_pregaoTodos=-1&amp;txtlstUf=&amp;txtlstMunicipio=&amp;txtlstUasg=&amp;txtlstGrpMaterial=&amp;txtlstClasMaterial=&amp;txtlstMaterial=&amp;txtlstGrpServico=&amp;txtlstServico=&amp;txtObjeto=automa%E7%E3o" DesignTimeRectangle="311, 405, 13, 13" ElementType="CheckBox" FriendlyName="'Checkbox'" FullSelectorArgument="&lt;webctrl tableRow='7' tag='INPUT' colName=' Convite' name='chkTodos' /&gt;" FuzzySelectorArgument="&lt;webctrl type='checkbox' tag='INPUT' colName=' Convite' name='chkTodos' class='' aaname='' /&gt;" Guid="c3f577fd-419e-450e-8ff0-d97d2a1da555" ImageBase64="" InformativeScreenshot="a87a6812450814192e8cb1bae92ac229.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ComprasNet' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+              </uix:NCheck.Target>
+            </uix:NCheck>
+            <uix:NClick ClickType="Single" DisplayName="Click 'OK'" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Filtro.asp" DesignTimeRectangle="108, 872, 32, 17" ElementType="Button" FriendlyName="'OK'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;form&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table' tableRow='1' tag='TABLE' /&gt;&lt;webctrl id='ok' tableRow='50' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='ok' type='button' tag='INPUT' class='texField2' aaname='OK' check:text='OK' /&gt;" Guid="8230a980-1e43-47a6-b85c-390e9f7ea1e8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAVCAYAAAAuJkyQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADTSURBVEhL7ZMxDoMwDEV7wK49S0/DwhXYkDgBE2JlQkzMiNWENC7OpwlhCKJSnvQX2wlPcnjQzUhCR1hCr/fz8iBJCIP8s1BJg5ljpi770e+p4lrd64qapLbgOTtImFDRqCsVc0O5qeWdrggpEOIzHpk1SJBQNX76Qy3rLMAflELYcwcJEMqondcuXs51Ft0kJqvuDxJBSCBW7AoSaWWbrP3w90HOPWrxB/GjprE0c1JInvGvDgkT0tmv5Oi3/0orXFLICaE4QZIQBrGE7kAS8kO0ANO2I9AmEqQzAAAAAElFTkSuQmCC" InformativeScreenshot="df74b045079d34edd0980c2ba7be92e3.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ComprasNet' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-1928, -317, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="581c771594171efc20c343f53c9d7f3a.png" Selector="&lt;html app='chrome.exe' title='ComprasNet' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

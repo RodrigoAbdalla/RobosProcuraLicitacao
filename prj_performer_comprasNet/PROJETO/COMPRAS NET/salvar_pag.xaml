@@ -1,0 +1,181 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="salvar_pag" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="arg_in_strArquivo" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>628,663</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>salvar_pag_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="56">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Entrada:&#xD;&#xA;arg_in_strArquivo- Caminho e nome do arquivo&#xD;&#xA;&#xD;&#xA;Processamento: Salva a pagina da web como PDF&#xD;&#xA;&#xD;&#xA;Saida:" DisplayName="salvar_pag" sap:VirtualizedContainerService.HintSize="476,2029" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando wf: salvar_pag&quot;]" />
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Compras.gov.br" sap:VirtualizedContainerService.HintSize="434,1482" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="88c14b1a-7ff6-4c26-b3e3-5523eb1bafd5" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1266" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Int32" Name="intTab" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" sap2010:Annotation.AnnotationText="Ctrl + P para abrir a opção de imprimir a pagina" ClickBeforeMode="None" DelayAfter="3" DisplayName="Keyboard Shortcuts - Ctrl + P" sap:VirtualizedContainerService.HintSize="334,209" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][d(ctrl)]p[u(ctrl)][u(hk)]" Version="V1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NKeyboardShortcuts>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBetweenShortcuts="0.05" DisplayName="Keyboard Shortcuts - tab" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)]" Version="V1" />
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBetweenShortcuts="0.05" DisplayName="Keyboard Shortcuts - Enter,end,enter" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" Shortcuts="[d(hk)][k(enter)][u(hk)][d(hk)][k(end)][u(hk)][d(hk)][k(enter)][u(hk)]" Version="V1" />
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBetweenShortcuts="0.05" DisplayName="Keyboard Shortcuts - tab,enter,esc" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_4" Shortcuts="[d(hk)][k(tab)][u(hk)][d(hk)][k(enter)][u(hk)][d(hk)][k(esc)][u(hk)]" Version="V1" />
+            <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts - tab" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_5" InteractionMode="WindowMessages" Shortcuts="[d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)][d(hk)][k(tab)][u(hk)]" Version="V1" />
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBetweenShortcuts="0.05" DisplayName="Keyboard Shortcuts - enter" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_6" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NKeyboardShortcuts>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-1928, -317, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="e2bd8ffc024cb73fd6ca511abe7cb7a0.png" Selector="&lt;html app='chrome.exe' title='Compras.gov.br' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: Salvar como" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" OpenMode="Never" ScopeGuid="f0056eef-6820-4f9b-ae47-d070c78758ea" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,504" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into - Nome" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" ScopeIdentifier="f0056eef-6820-4f9b-ae47-d070c78758ea" Text="[arg_in_strArquivo]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="136, 369, 514, 17" ElementType="InputBox" FriendlyName="'Compras.gov.br.pdf'" FullSelectorArgument="&lt;wnd aaname='Painel do Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='N*:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Painel do Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Nome:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" Guid="331eccea-e0c6-4e74-8d7e-e66eb4c5509d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAgYAAAAVCAYAAAA94ia8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKrSURBVHhe7du9bSMxEIZhl+MaXJBrcAeXbhmqQKGy60DABQKcOREUKXLGW5LDn+GS1I9py4LeBxic1lxyKSiYT7u6JwMAACAIBgAAIKoGg6e3f9QdlPnzLJ8YAABjEAzuuAgGAIDRCAZ3XAQDAMBoJ4LBu5n28kdrfzAvWWOiPszafJppqo2NquIaq2P8LP4SDAAAg7WDwXQwu/n1ehUalP/blB8/fP10MLCv02fCHQMAwGiNYODvFKhQQFXqFsEgXY9gAAAYrR4M3N2Co3ldNKms5I5CkEKENK9VGrdjL5tPOTJmt3lvnluOrbd2nt/L69af42w/5Dz9uKMaZrK97jYH1Vzr76MSjOwt/MWjlMv2f968uar7tXMSez7BAAAwWjsYdH9P4JtUbJyukYVmKw0szJdn4rHxuePQKItzK+uohhnLjsl5dr0YEmql9+oDir5G9X0U69pQooKCq6/svz+vvd/wmjsGAIDxrrtjUBlPjVM3r/5xOdZbZy4JGZ6Mub20GrCMq5CTrXvyfWQBRq0R6sL9x+rM6+23mEcwAACMdt1vDL4tGOTXLcbUNe15+bz0qGKx56uDgV/TBo7wbzgn1QX7P3cewQAAcEONYDA3Hvl2rhrt3LT8/0qwDSobUw22bHq9Y79ObLq9dex+QsN05+Vr+koNfHmNvNn3HyVkQcEe749mPVcKD8u1z9r/RfN6+01rEgwAAKO1g0FsWJn8m6waazXAU8f+tf+BnpeCSDnPf6t2XLOWMfV4oRMqRP/Hh/n1bMk11W8Yrt3/ufPmau5Xr0kwAACM1g8G315l8/yBUt/Ob1Vj3jfBAAAw2sMFA/sbAnXn4yZFMAAA/E4PEAyyRxDOre8W2CIYAAB+p2owAAAAj4lgAAAAIoIBAACICAYAAEAY8x+DO6YQS/4HwQAAAABJRU5ErkJggg==" InformativeScreenshot="d251f8b26d87fc20131b8ceb122e6b2a.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Salvar como' /&gt;" SearchSteps="Selector" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="204, 324, 236, 22" ElementType="Text" FriendlyName="'comprovante_endereco.pdf'" FullSelectorArgument="&lt;wnd aaname='Painel do Explorer' cls='DirectUIHWND' /&gt;&lt;wnd ctrlid='1121' title='ShellView' /&gt;&lt;wnd aaname='Modo de Exibição de Itens' cls='DirectUIHWND' /&gt;&lt;ctrl name='Modo de Exibição de Itens' role='list' /&gt;&lt;ctrl automationid='9' /&gt;&lt;ctrl automationid='System.ItemNameDisplay' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Painel do Explorer' cls='DirectUIHWND' /&gt;&lt;wnd ctrlid='1121' title='ShellView' /&gt;&lt;wnd aaname='Modo de Exibição de Itens' cls='DirectUIHWND' /&gt;&lt;ctrl name='Modo de Exibição de Itens' role='list' /&gt;&lt;ctrl automationid='9' /&gt;&lt;ctrl automationid='System.ItemNameDisplay' role='editable text' check:text='comprovante_endereco.pdf' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPAAAAAaCAYAAACJitF2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJBSURBVHhe7ZiNcYMwDIU9FwN5Hk/DFkzAMK5/QbYlQ5IrjXrvu3vXArKlID9wYjwAQC0wMACKgYEBUAwMDIBiYGAAFAMDA6AYGBgAxcDAACgGBv4KVm/N4t1eDtXQ1b1ab4zxZnFe3UdRCgyc+GsD/QcDx/+Nt2u6AB4CBk7AwO/RG1jjZ9CNYODduyVsheJ2iD5Vd+eXcq45X5u3ntfjtd0tR+xydHaM7a9ZG8fZcBRgc+b6mqd93L6Vrdtqz3hzBJW8rmzzgnLeeJ6Jb/KWWiTYWClfgYxZnMux9fJkPvne0Bpf7R+l1M32J8DW3d7DJh78KoyBc/PHJuQmtYuhLrrSwPrdp3wXOuZIx3QhklhmnjP3JGeck6zAaNpxQcbxXY01aKipxkW64xArL0op9irfWW9+0NE65fnae8PFvdM/So6b9edW3eARRgOnhtGneYE5f5qmb97seGy0OM9lTmII+sNJMktYhElSXnrM5a3ji46V3yHGTvLFMbTe/tqd+aS4dP7V/lH6ukncrG5mHPh9vsDAdDvcXbtYdPENEN809W85ScbEuaW8k5qke8Ahxk7yxTFTA9+YT4p74fw9A5P+zOoexoEn+HALXRdE37zZcZ6HNxw3TsoZSAvKhrcvORffvnWRpXiad1bTmHe8BxxS7FW+9kHU7hTuzsfFfdq/bt4hblY3rQ88gfAjFgBAA2bbNg9BkE7BwBCkWDAwBCkWDAxBigUDQ5BiwcAQpFgwMAQpFgwMQYoFA0OQWm3+BwDEFvTnQTVeAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Sa&amp;lvar'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f0056eef-6820-4f9b-ae47-d070c78758ea" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="470, 434, 88, 26" ElementType="Button" FriendlyName="'Sa&amp;lvar'" FullSelectorArgument="&lt;wnd ctrlid='1' title='Sa*' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='Sa*' check:text='Sa&amp;amp;lvar' /&gt;" Guid="78a58ec2-dc64-4e59-ad38-2122502e92a1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFwAAAAeCAYAAAChf3k/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFdSURBVGhD7ZbBccQgDADpiW6oJD9aoRWqyNsduAMdYCDSWZd4xrZGzuixY7Cke6yFOLeuKxhymHBhTLgwRLj7+jZugDgmGybZOA9xTDY9YVkW4wJMuDAmXBgTLowJF0af8BTAOdcJkLicSYLgPMTMxXSiS3iO4LHkso8JxXeY8HPU7vYRMhdjMeEnqQId+Jh3sRTGmCmE1N8P4RmidxDwaUAf77faEPyB0XUdyoRXNnlVDhE4wV2N1lXwlLlJ3te/1/If904UCu+0eY6kkcuUEd7Wo1PLGo+mP2vl0Cu8kGM57rVryWVaTwAvrebXjh3P9jsHa6XQJTyVfyVTwDZamjh8mTaBH6TVmA+lu9FMPlorhC7hTcI4+oU5k3/mumtCP0nreWiWH6+VQZnw/8+jhc+TUODiGnm08CdiwoUx4cKYcGEOCzeuhTgmGybZOA9xjDfG/ZhwYUy4KCu8AMVMocqfQCQOAAAAAElFTkSuQmCC" InformativeScreenshot="0c6712b6a6efa3dc095ea147c8ea60e2.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Sa*' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-1920, -309, 683, 480" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ7SURBVDhPrZJdSFNhHMbfuwKDBgVJmG3KzLnmznESlLqdzbL8iPK+GCHRRYhehBdZrSSJhBoz02rTmYUVSEEfV+WWmQlZ7KaMiFzkchvmzvwI1HN2nt6zXhDDSx/48bxw/r+X98CfrHvCAqeZdhS74g5LOO4oBiMUEyz+qMBp2djaiQt7nHG7RYzZLYgKFsSEIoWKiNp4ZcrKK1Ern4hZuQY2vjrqhykbjzRWHr+sHIV2Ge0ysxIp5RCh50ipGZGSQifT/oXzH9V+3V8k0mE6aMYkZbq+DklPG2bvtCF5tRrJFh7iJU5JqrRyIkKchumE8P21vW2NAn6WFKZJ+joR/LKMMw//4JR/Ac9Cy0hN3oI8ykEaNdM20y50MZ0Qc9+RUInvMN5X0OfWVihPQ0uwXEhSxDRFlMD4MuRPTiobIb8rQGrUMMF0Qkx3axRTbw1OuhyYuXYFdd3z4M4nKCLrBBr7F5CaaIU0kgd5RK9II3ownRBjTzWM3VUw9lQpwQduNNyfx+7mGZiaEzCdo9A+4ZtD6nsL5Lc5FB3kYd3KBQZfZdjgPQSDtxLO500YHF9CwdkZxu90P/m4CHlsLxV3pJGGs0JMJyTfW+HKv30QKrsoN8b68PjDIo57Z3G6bw6vPi9h8psH0lAmYxtSbzL9TCdE6xY0+s4DIgX6Lgpt4d4xXB7uTNP0oh4/Xm6H9HorY4uIoGb1VuZ2CM7cm+VKbkc5VHI6HIqKeu4eyIMU1DA2IzWkWXsbte1Co67dLmo9AnQeO9Qu7doHKbAJciBDkQIZohzMWL2F/4f+jjbbbfPvdNtC2detyqOBLCpvCEuDGy/SZ69s3/qEkL8EQKZnbR9j4AAAAABJRU5ErkJggg==" InformativeScreenshot="30f17c593124881b7867a11269d00497.png" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Sa*' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Finalizando wf: salvar_pag&quot;]" />
+  </Sequence>
+</Activity>

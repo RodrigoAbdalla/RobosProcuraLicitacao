@@ -1,0 +1,337 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="extrair_licitacoes" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="arg_in_strCaminhoArquivo" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1100.66666666667,2801.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>extrair_licitacoes_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="37">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Entrada:&#xA;arg_in_strCaminhoRelatorio - Caminho do relatorio de licitaçoes extraidas&#xA;&#xA;Processamento: Verifica se houve algum resultado a partir dos filtros, se existir resultado há a extração da tabela&#xA;&#xA;Saida:" DisplayName="extrair_licitacoes" sap:VirtualizedContainerService.HintSize="920.666666666667,2736.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: ComprasNet" sap:VirtualizedContainerService.HintSize="878.666666666667,2532.66666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="844.666666666667,2314.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Não existe'" sap:VirtualizedContainerService.HintSize="802.666666666667,2220" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="250,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Não existe licitação para o critério informado.&quot;]" />
+                  <uix:NClick ClickType="Single" DisplayName="Click 'Voltar'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Relacao.asp" DesignTimeRectangle="28, 199, 52, 17" ElementType="Button" FriendlyName="'Voltar'" FullSelectorArgument="&lt;webctrl tableRow='3' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' aaname='Voltar' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='button' tag='INPUT' aaname='Voltar' class='texField2' check:text='Voltar' /&gt;" Guid="dd62eff4-d5f0-4511-9868-c2c4cdb4455d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADgAAAAVCAYAAAATtC32AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEUSURBVFhH7ZQxDoMwDEV7wK49S0/DwhW6IXECJsTKhJiYI1aXNDL5TkIVJEQblC99CYgDfrbDjS6uDJi6BODjeb+EURkwRaNOAqxo/HxhoDq4fqxRUYD1ZNZVX8BzTlpR95Lxvh3AV7vsgvuDjYrrYDOYgKnyn80tlRgb9L8DBkas7E2KY2PjuNMsu4b7+RqkC7dCg9aC2v1d4LuuUdFnkJM3Ly6om/WdBQ6v8/ju7SDv5/f5RTkccE0Kq+1V2J5H7rA5t3GA7gRoScCtgkij4gGha/6Y+AnsBeR4LpqciFMAOQlFyhlP7V0jGkiY9/Of+ieAtvI2EbQ7Yt86LGK3fjKLzgVMxKgMmKJRAvCKyoBpi+gNf5HkN4dFPvcAAAAASUVORK5CYII=" InformativeScreenshot="debe46ac74e54b4fabd48988ea35b0be.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compras.gov.br' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="498.666666666667,2000" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="strPagLicitacoes" />
+                    <Variable x:TypeArguments="x:Int32" Name="intQtdeTotalLic" />
+                    <Variable x:TypeArguments="x:Int32" Name="intQtdePag" />
+                    <Variable x:TypeArguments="x:Int32" Name="intPagAtual" />
+                    <Variable x:TypeArguments="x:Int32" Name="intItemAtual" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGetText DisplayName="Get Text '(Licitações*)'" sap:VirtualizedContainerService.HintSize="456.666666666667,158" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Relacao.asp" DesignTimeRectangle="33, 991, 1835, 12" FriendlyName="'(Licitações 1-10 de 926)'" FullSelectorArgument="&lt;webctrl tableRow='1' tag='CENTER' aaname='(Licitações*) ' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' tag='CENTER' class='' /&gt;" Guid="f284e81e-4906-4285-9732-0e0e680d7af3" ImageBase64="" InformativeScreenshot="f7a84f7b520a4612ec4b65bb161c3649.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compras.gov.br' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                    <uix:NGetText.Text>
+                      <OutArgument x:TypeArguments="x:String">[strPagLicitacoes]</OutArgument>
+                    </uix:NGetText.Text>
+                  </uix:NGetText>
+                  <Assign DisplayName="Assign - intQtdeTotalLic" sap:VirtualizedContainerService.HintSize="456.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[intQtdeTotalLic]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(Split(strPagLicitacoes, "de ")(1).Replace(")",""))]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Assign - intQtdePag" sap:VirtualizedContainerService.HintSize="456.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[intQtdePag]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(intQtdeTotalLic/10)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Assign - intPagAtual" sap:VirtualizedContainerService.HintSize="456.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[intPagAtual]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Assign - intItemAtual" sap:VirtualizedContainerService.HintSize="456.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[intItemAtual]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[intPagAtual &lt;= intQtdePag]" DisplayName="Do While - Paginas" sap:VirtualizedContainerService.HintSize="456.666666666667,1299.33333333333" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+                    <ui:InterruptibleDoWhile.Body>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="420,1130" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="booItemExiste" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[booItemExiste or intItemAtual = 10]" DisplayName="Do While - Itens" sap:VirtualizedContainerService.HintSize="378,416" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                          <ui:InterruptibleDoWhile.Body>
+                            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,246.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NCheckState DisplayName="Check App State 'Itens e Download'" EnableIfNotExists="False" Exists="[booItemExiste]" sap:VirtualizedContainerService.HintSize="262,52.6666666666667" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+                                <uix:NCheckState.IfExists>
+                                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,750.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ClickType="Single" DelayAfter="3" DisplayName="Click 'Itens e Download'" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Relacao.asp?numprp=&amp;dt_publ_ini=09/08/2022&amp;dt_publ_fim=10/08/2022&amp;chkModalidade=1,2,3,20,5,99&amp;chk_concor=31,32,41,42&amp;chk_pregao=1,2,3,4&amp;chk_rdc=1,2,3,4&amp;optTpPesqMat=M&amp;optTpPesqServ=S&amp;chkTodos=-1&amp;chk_concorTodos=-1&amp;chk_pregaoTodos=-1&amp;txtlstUf=&amp;txtlstMunicipio=&amp;txtlstUasg=&amp;txtlstGrpMaterial=&amp;txtlstClasMaterial=&amp;txtlstMaterial=&amp;txtlstGrpServico=&amp;txtlstServico=&amp;txtObjeto=&amp;numpag=1" DesignTimeRectangle="39, 460, 123, 17" ElementType="Button" FriendlyName="'Itens e Download'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl tableRow='3' tag='INPUT' type='button' aaname='Clique para ver os itens ou para fazer o Download do Edital' parentname='F{0}' /&gt;&quot;, intItemAtual)]" FuzzySelectorArgument="&lt;webctrl class='texField2' tag='INPUT' type='button' aaname='Clique para ver os itens ou para fazer o Download do Edital' parentname='F0' check:text='Itens e Download' /&gt;" Guid="9e37513b-2ca1-4474-8646-e5a895c4382f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH8AAAAVCAYAAABv0jEvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIbSURBVGhD7VU7bgIxEM0B0+YsOQ0NV6BD4gRUK1oqREW9onXWn+f5eLCWKBBY+0lPYtYzns+zzYfraBZd/IbRxW8YQvyv78/OhZOji98YObr4jZGji/9sbgY3+mFfB7e21n/NlTtcg4zuvLfWIznmib8/JQ9CTLB152CN7rBRMS/E9TGMW+Hkdobvw/l24gdCaD609xJ/PK7SN9RdH9RDuAzxKVkGGkKDGXRgdpf45XxkPnwQReztZrAXQOJKluJPtETQL9xlK7/r/rQd/GlOB/bi5NxGXt0H9UuHNIPXa2kw4f9uvhjEZGNwyc6Nhib0abVy2Iz7IC/2sV8gU3ydS9UpY6RvWLuOUzYZK32TjXnAV4mfL0Pov94HfNGHtPUsbXL8ufgYWgGzWW3T4CLsIZR+BKvxOeLrwdZE8r/H6eXy8bCpVj0nZYt9sVbOD3VY84xrOvaVxMfNV5Ril7b1lEnRPMu8NZriV29guU6324se84aYyxDrhV8xJ2Wb4tNMRa3q70b2oWOfLr7xTKE5/s3H3hhyKT7RFC0RcfyQef95+6AXVmP12Wcx7LkPPsG29saclF09dHKeqMGuSYv9KPExGAYkyAV64PTnA8AwR3wr7sYL4pkPAIPVuKgxgx/iRN2nyp3zFX2qgx6+zRNf7JtAPSBWojxoEtYMQI47bn7nEsjRxW+MHF38xsghxO9oC138htHFbxbO/QAEDyQLpebnMwAAAABJRU5ErkJggg==" InformativeScreenshot="9ffddc3859a3409ae7c6bcd4763aca54.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compras.gov.br' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+                                      </uix:NClick.Target>
+                                    </uix:NClick>
+                                    <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'Download'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1">
+                                      <ui:WaitUiElementAppear.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5e651723-672e-4db9-8e46-2f8c12b2601c" InformativeScreenshot="f3db8cd53310de13153055044bbff588" Selector="&lt;webctrl name='Download' tag='INPUT' /&gt;">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                          <ui:Target.WaitForReady>
+                                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                                          </ui:Target.WaitForReady>
+                                        </ui:Target>
+                                      </ui:WaitUiElementAppear.Target>
+                                    </ui:WaitUiElementAppear>
+                                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke salvar_pag workflow" sap:VirtualizedContainerService.HintSize="334,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="PROJETO\COMPRAS NET\salvar_pag.xaml">
+                                      <ui:InvokeWorkflowFile.Arguments>
+                                        <InArgument x:TypeArguments="x:String" x:Key="arg_in_strArquivo">[arg_in_strCaminhoArquivo +"\compras_net_"+now.ToString("ddMMyyyy_hhmmss")+".pdf"]</InArgument>
+                                      </ui:InvokeWorkflowFile.Arguments>
+                                    </ui:InvokeWorkflowFile>
+                                    <uix:NClick ClickType="Single" DelayAfter="2" DisplayName="Click 'Voltar'" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/download/download_editais_detalhe.asp?coduasg=160262&amp;modprp=5&amp;numprp=22022" DesignTimeRectangle="39, 1028, 52, 17" ElementType="Button" FriendlyName="'Voltar'" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Voltar' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' aaname='Voltar' type='button' class='texField2' check:text='Voltar' /&gt;" Guid="63ab2ab6-325e-489b-917f-f65b61facb82" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADgAAAAVCAYAAAATtC32AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEUSURBVFhH7ZQxDoMwDEV7wK49S0/DwhW6IXECJsTKhJiYI1aXNDL5TkIVJEQblC99CYgDfrbDjS6uDJi6BODjeb+EURkwRaNOAqxo/HxhoDq4fqxRUYD1ZNZVX8BzTlpR95Lxvh3AV7vsgvuDjYrrYDOYgKnyn80tlRgb9L8DBkas7E2KY2PjuNMsu4b7+RqkC7dCg9aC2v1d4LuuUdFnkJM3Ly6om/WdBQ6v8/ju7SDv5/f5RTkccE0Kq+1V2J5H7rA5t3GA7gRoScCtgkij4gGha/6Y+AnsBeR4LpqciFMAOQlFyhlP7V0jGkiY9/Of+ieAtvI2EbQ7Yt86LGK3fjKLzgVMxKgMmKJRAvCKyoBpi+gNf5HkN4dFPvcAAAAASUVORK5CYII=" InformativeScreenshot="4ac48729c4e8da2ac516bfd75c43759c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compras.gov.br' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+                                      </uix:NClick.Target>
+                                    </uix:NClick>
+                                  </Sequence>
+                                </uix:NCheckState.IfExists>
+                                <uix:NCheckState.IfNotExists>
+                                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,86" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </Sequence>
+                                </uix:NCheckState.IfNotExists>
+                                <uix:NCheckState.Target>
+                                  <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Relacao.asp" DesignTimeRectangle="39, 460, 123, 17" ElementType="Button" FriendlyName="'Itens e Download'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl tableRow='3' tag='INPUT' type='button' aaname='Clique para ver os itens ou para fazer o Download do Edital' parentname='F{0}' /&gt;&quot;, intItemAtual)]" FuzzySelectorArgument="&lt;webctrl class='texField2' tag='INPUT' type='button' aaname='Clique para ver os itens ou para fazer o Download do Edital' parentname='F0' check:text='Itens e Download' /&gt;" Guid="f75a149c-51ae-49c8-8403-fd3d467f4703" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAH8AAAAVCAYAAABv0jEvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIbSURBVGhD7VU7bgIxEM0B0+YsOQ0NV6BD4gRUK1oqREW9onXWn+f5eLCWKBBY+0lPYtYzns+zzYfraBZd/IbRxW8YQvyv78/OhZOji98YObr4jZGji/9sbgY3+mFfB7e21n/NlTtcg4zuvLfWIznmib8/JQ9CTLB152CN7rBRMS/E9TGMW+Hkdobvw/l24gdCaD609xJ/PK7SN9RdH9RDuAzxKVkGGkKDGXRgdpf45XxkPnwQReztZrAXQOJKluJPtETQL9xlK7/r/rQd/GlOB/bi5NxGXt0H9UuHNIPXa2kw4f9uvhjEZGNwyc6Nhib0abVy2Iz7IC/2sV8gU3ydS9UpY6RvWLuOUzYZK32TjXnAV4mfL0Pov94HfNGHtPUsbXL8ufgYWgGzWW3T4CLsIZR+BKvxOeLrwdZE8r/H6eXy8bCpVj0nZYt9sVbOD3VY84xrOvaVxMfNV5Ril7b1lEnRPMu8NZriV29guU6324se84aYyxDrhV8xJ2Wb4tNMRa3q70b2oWOfLr7xTKE5/s3H3hhyKT7RFC0RcfyQef95+6AXVmP12Wcx7LkPPsG29saclF09dHKeqMGuSYv9KPExGAYkyAV64PTnA8AwR3wr7sYL4pkPAIPVuKgxgx/iRN2nyp3zFX2qgx6+zRNf7JtAPSBWojxoEtYMQI47bn7nEsjRxW+MHF38xsghxO9oC138htHFbxbO/QAEDyQLpebnMwAAAABJRU5ErkJggg==" InformativeScreenshot="754a53bb6ef0a98f78e8ee5b691269bb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compras.gov.br' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+                                </uix:NCheckState.Target>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NCheckState>
+                              <Assign DisplayName="Assign - intItemAtual" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[intItemAtual]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[intItemAtual+1]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </ui:InterruptibleDoWhile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InterruptibleDoWhile>
+                        <Assign DisplayName="Assign - intItemAtual" sap:VirtualizedContainerService.HintSize="378,62" sap2010:WorkflowViewState.IdRef="Assign_7">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[intItemAtual]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Avançar'" EnableIfNotExists="False" sap:VirtualizedContainerService.HintSize="378,378" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+                          <uix:NCheckState.IfExists>
+                            <uix:NClick ClickType="Single" DisplayName="Click 'Avançar'" sap:VirtualizedContainerService.HintSize="334,158" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Relacao.asp" DesignTimeRectangle="974, 1011, 64, 17" ElementType="Button" FriendlyName="'Avançar'" FullSelectorArgument="&lt;webctrl id='proximo' tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='proximo' type='button' tag='INPUT' class='texField2' aaname='Avançar' check:text='Avançar' /&gt;" Guid="4544c423-9eaa-4f92-b617-1ddb3d7efcd1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAAAVCAYAAAD/wUjgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFnSURBVFhH7ZQxrsIwDIY54Fs5C6dh4QpsSJygU8XKhDoxV6yhSfzbcWIQeY8iqpdf+ilNnNr54nblmpQakEwNSCYFZL35+beGGhAy1ICQoQaEDFUDOV4p2I3utLdjlmioEsjBDRTrNZ63RswyDdUB6S4x8DZO/eGvvdvRHDpn6Ch236sY6SxIOmx3DpET4D4BfnFHevZ6s3WnGw2TwmEgR6rrgdYkNU3PDXHJXG6oCohsWgosAFBS2aTRRQw2wkIsICBPXGvkMl3GFYfwXiB4XWLRvAlOgoL8fPqf1lunmQEBPHXP69KOEZedVwJ5DjIaehmInGIuKRQxQ0fwGBZg0muSvU6/BcI1UZ4cwIxArLa1xvRHl8fzTdUAMfNEY8NY9zkgD06JT4g25sdQRDqmxlO9BMSvFyhQmOO6tOYH8jWOYATU+wytJvmfcGMFfou5Gx98XP9qaGEdMp8hBaSpASnUgCg5dwfid6PpQAEA6AAAAABJRU5ErkJggg==" InformativeScreenshot="d7fd28f9eee5ba85903f4bfec9c95e8e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compras.gov.br' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                          </uix:NCheckState.IfExists>
+                          <uix:NCheckState.IfNotExists>
+                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="250,69.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NClick ClickType="Single" DisplayName="Click 'Nova Pesquisa'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d9f3e800-a588-4323-a86e-b64bb5737ed1" Version="V1">
+                                <uix:NClick.Target>
+                                  <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Relacao.asp" DesignTimeRectangle="862, 1011, 104, 17" ElementType="Button" FriendlyName="'Nova Pesquisa'" FullSelectorArgument="&lt;webctrl tableRow='2' tag='INPUT' aaname='Nova Pesquisa' /&gt;" FuzzySelectorArgument="&lt;webctrl type='button' tag='INPUT' aaname='Nova Pesquisa' class='texField2' check:text='Nova Pesquisa' /&gt;" Guid="60adc323-8ef3-4e32-89a9-5476203894d4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGwAAAAVCAYAAACjSwvEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH5SURBVGhD7ZUxjsIwEEVzwG33LHAZGq5Ah8QJqBAtFaJKHdF6x3H+eDy2Ewiw4F1/6UvYmdgz8+zQmKqiVIEVpgqsMAXAvhdf1R9oqQqsAEtVYAVYqgIrwFI3A9u1Q5DpzHEzzG8ONCK12yj+lV6f+l2VRF7v8P7s0rgezDr1/AFLzQBGAqA3A+tOKzeHPMzZ7FTsX7DUncA6c2lday57mk8AC8CS+jj7DCeQY1fmeLUT7mbo98ZuTARssTUXN8Pv6PV8bGIvvhVYRwpr4hkOhRqjFyNruRwSe0zcSqm7gR03w4Z2EwUMjXCQQiB+nCtQeOLzkr1hQ7zP1caHecSwYcQhfzR2DjBde97oWZyPt9QMYDQeGtq1Z5dkD0wXGDcHY9sQ+bvfAwVLTQALxLHII5bcl4Ubz/trII8A8+I6yan8XwtMJxQAQ0E+segmULxbL9OcoHi3lnS0bmDd6IRxg1mUR7SnXkfXp8aJnHF7WLZP6usxXouz1ExgZCRoNZxSJOhOU/qzEBSRO90PARN7YH2yfUeecmfZ9BygqfENOYv/b+SO3H4PGM+RRGMCIKSoSXy6R0BCM4FZp9azucTzIg95CFn+OTc7UAoYYApxLYlnpKcD+3/WN+p9lqrAsv4sYMvl0jRNU4GVYKkAWNXnqwIrTBVYUTLmB9vJizGkbUwIAAAAAElFTkSuQmCC" InformativeScreenshot="5b5f06abbf15eade6762e3b2289df459.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compras.gov.br' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+                                </uix:NClick.Target>
+                              </uix:NClick>
+                            </Sequence>
+                          </uix:NCheckState.IfNotExists>
+                          <uix:NCheckState.Target>
+                            <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Relacao.asp" DesignTimeRectangle="974, 1011, 64, 17" ElementType="Button" FriendlyName="'Avançar'" FullSelectorArgument="&lt;webctrl id='proximo' tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='proximo' type='button' tag='INPUT' class='texField2' aaname='Avançar' check:text='Avançar' /&gt;" Guid="f89cbc7b-c502-4716-98ee-1ef06d7c1ab1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAAAVCAYAAAD/wUjgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFnSURBVFhH7ZQxrsIwDIY54Fs5C6dh4QpsSJygU8XKhDoxV6yhSfzbcWIQeY8iqpdf+ilNnNr54nblmpQakEwNSCYFZL35+beGGhAy1ICQoQaEDFUDOV4p2I3utLdjlmioEsjBDRTrNZ63RswyDdUB6S4x8DZO/eGvvdvRHDpn6Ch236sY6SxIOmx3DpET4D4BfnFHevZ6s3WnGw2TwmEgR6rrgdYkNU3PDXHJXG6oCohsWgosAFBS2aTRRQw2wkIsICBPXGvkMl3GFYfwXiB4XWLRvAlOgoL8fPqf1lunmQEBPHXP69KOEZedVwJ5DjIaehmInGIuKRQxQ0fwGBZg0muSvU6/BcI1UZ4cwIxArLa1xvRHl8fzTdUAMfNEY8NY9zkgD06JT4g25sdQRDqmxlO9BMSvFyhQmOO6tOYH8jWOYATU+wytJvmfcGMFfou5Gx98XP9qaGEdMp8hBaSpASnUgCg5dwfid6PpQAEA6AAAAABJRU5ErkJggg==" InformativeScreenshot="5d9687f118e314ed70bca81b9a58f058.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compras.gov.br' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                          </uix:NCheckState.Target>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uix:NCheckState>
+                        <Assign DisplayName="Assign - intPagAtual" sap:VirtualizedContainerService.HintSize="378,62" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[intPagAtual]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[intPagAtual+1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </ui:InterruptibleDoWhile.Body>
+                  </ui:InterruptibleDoWhile>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="http://comprasnet.gov.br/ConsultaLicitacoes/ConsLicitacao_Relacao.asp" DesignTimeRectangle="28, 168, 1862, 13" ElementType="Text" FriendlyName="'Não existe'" FullSelectorArgument="&lt;webctrl tableRow='3' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' aaname='Não existe licitação para o critério informado.' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' aaname='Não existe licitação para o critério informado.' class='mensagem' check:text='Não existe licitação para o critério informado.' /&gt;" Guid="bd279c4c-52ba-4fc9-9d11-f8787cb07646" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAB0oAAAARCAYAAABToi/GAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVNSURBVHhe7dy9cdw6FAZQ9+Ra1IaLcAPuwrG6cOIZjxMlCpVaNfDxDyRwAZC7kme0fnvODIIVCeDikoq+2f00AAAAAAAAANwZQSkAAAAAAABwdwSlAAAAAAAAwN0RlAIAAAAAAAB35w1B6Z/h+eHz8PPTl+H5ZRhevn4enn6sl/53fg9Pn6azfhvGo96Mqec/x7qmvr9+/zL8+v5nvcJb5P28Hen/bP9fuyk/vi21PTwOr+ufAAAAAAAA/iVZUJpCwTL8mIK4IkR6eRx+zdc/MES8OKRJNb41aApnvHTfqUf5vPj5XaaapnXKwJrMNf2fn+mFPXxPOHjl3PR/d7Mh+Ht6AQAAAAAAcAPaQek4UjBaBaX/lL8clL7VXw1KudpB/19fbjOIvM1vuWYEpQAAAAAAwD+uDkofvg1P8zcVl1ApBqUpwNlHCCFTgJLG19/rhYYtwEpjDbK2NVKwtYe48zfs0rwtpClD3uW+5+ynS9eR7u/tWwlBabVvox/zefN5dW3zPVUN69+T6vrS5/Q88lGEaXHeQZCVav/1kK251dCou3Hup+/rfpecKbrmXSl+inYZ8V14nmua+nRB/ydVvft7cHi+g+ffDTbD3P0bo49Zfcv+1TNO+8V6szqq9eZrex+eszWnGvO6U82n71Z8XtPIarjueQIAAAAAAHysRlD6OLyugccURKXwpBkApWAkhSXp8xqQ7OFN41t7KfRJYUqYm3+uaihCp6OfoE1BUXbtbN9CHriNQti1BY3V+TrzsiCutIeA8xlP71/F+0J9x2eL9YcagnjWGBDWexyvd9W7crTW1oM0YlCa35P1M/2t8x40zxf6m+5Zajp6D0dh7h5KLjX1+rv1I8zv9W8b832pD+s6Wx/WmtMaac3cdm+nh3HuVc8TAAAAAADg47WD0vHTEtR8GZ6+dkLKfBRzDsKdTBXspJHdW9yTAq1Jse4eoqWxh2kpKNrDq0v23XUCt/neeu1dZ176vEr9ysdU+1ZjfuZNWjsfy7r1vFBHkPZP/Urz0/Nr9Spdi3OT3pmia96VXv9mzXnn/T97D5rnK/aqn3/sXyHU2et17G+83nu27b1P+lD1Lt2fj3L9bf8QlF71PAEAAAAAAG5ANyjdQ5VlLIFRCIdCGFKFSwdhSR381LZ74n2NddPe5f2h3tEl++46QdO8b732rjMvfR7FOvLe9WuM36ws90nz9rAs1BHE51XMD0FYXLt61qOjM0XVtYN3pdW/TXPe9f2PmrUXe9W9rfufCXXGe3v97V0/f/aTkz4UNV35bnWC0oueJwAAAAAAwA3oB6WjFI5sAchh0DK65uc3t7XyoHGsIaw1zU3rXBTCFDU0fg71bN9CJ2ha741h1i7Mqz7Xc4ugaatxv3+R1km1H9cXn0dUhltlr7Zn33mWVTA2OjxTdM27UoV4mea7cN7/s/egWXvn+bf6Vwlz43l7/d36cfJs2/3rvB/N9yXd23m30n5x/wvrOXwXAAAAAAAAPsBhULqHJXvAkQKPYuRzUmCSRiekm23BTTamtbY1YtC1Bi/NgCcbWT0psCn+3tt3npELYVGx76Lqx3zeMG9U3Dfd06phHFuQVF0PAWYx9n2qec1zLVrPcg+yGn0dx2HwdXam6Jp3JQtL06jfheSC/s9/bNS7rnN4voPn3z1rmBuDxF6wmD7PYr1ZHXH+ovP+dt7ns3ereT2r4eh5NvsJAAAAAADwgbKglJs0h1mdbym+k/AKAAAAAACAeyUovVnZNygPv2n5doJSAAAAAAAA7pWgFAAAAAAAALg7glIAAAAAAADgzgzDfwT6HUkxTJRxAAAAAElFTkSuQmCC" InformativeScreenshot="479f8ae0c9df9c8e1f3fa3e5c87da4b6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Compras.gov.br' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-1928, -317, 1936, 1056" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAaXSURBVFhH1ZZtbFRlFsfnEyKKjoKiInRooW/TTu9MW3lpaW87hb4hLfBl3WwXTTSriQaN2V3Xt4IxJhplWgoU+kKLoGyWIChqVhY6tLyK7vbLGokmjkBb2ipzS5EEuHee4/8597mdVirBtw+e5JdzztNnzu95bjqT6/rdRETX3N+UzNMHS3JDA8U53YPFOQYQCmMwmBPuL84J9Qazq9VHfp2QYghrB4qyo44QPaEXkv6ibBrQZc6hfs7ZMkcG9EDtWV3zqDE/LwaDuasgMRwRSzizhM6OEODMa4UBYfeg0P/V2QJtpRr30wI3DUkRD1bCfgzv122BrCFjYZ/MBf5R2U+9BTZ9TCCkxl5fQNA2cgu+icQW8EAIkFkke0dmo1HvQo16ALLozc8Sqm5T468d8rTOLRwBy9RwR9gnhzuSuNDOUpqfNZLPgJ48nzid57v2k+jRAw/yDRyBlKnBUiSH9+THBTwYfU+e3fNanm8MkDIja/N9q5RubGg7qj0ng/6IcxNbYt+Ih4+S9Jbl07mXX6DzrY3MUMNTNPRqJRlr/GS8BNZoQtZDnDXZqzVNDL2iGdStuZU2HoEdy2tXPxNUt8oSZ/Js6ZkFPiHX5Oml+OKH79KPhfhmL1ndS8j6OJvM436yjgdQ+4WFOqaydVwT5jFttdLGI/D2skjgrWXUWZVrPzIpRj69IFMi+laUkdnXy6K93Zfp0fbvqKpumJH13u4r/De61ItDVEjRWI5ljcq+6JinoL21rMq/vZokNa+VOlI6PT9TnJqfSb3LS1neZ8ToL23fUU7t0Lj8sfEC7+FDfJInRRBKMq/CPJShKz0OsLW6Lmt7ldAk26rogxW5dGpehmBwgAvv7+HLPdA4TNkvGlcDuVM/suUC7xWDeyDyCuuol0Y4JnM6EzuaFv9GQBrOerOKst5cShryog0V9FmhjyJzvXSmejEPfO9/l8kPgf8Fm4CsgZMdZC/3yrBO3CfMo2kQjiYVh0ql2JG0bqV3uXxblxq+rfcTMvnakcErj+dT5L50MfDXJ3jYw7iZBvFYouNg8F4ZsS+fgTAFwmSbIwxJzCPJhtK7XJntSwiIzDbOzLzNFfT/fK8wmtbzsPI3hijr+ejVQPjDvuz1If5M7HQ9ZHPIPDybLAnq0VnpXa4MiDPaKgXndpW3VNKqvxdSdHMDDyvF0EwIRuP7Qe8g98qIncIBDidBmCisw7Nw+yQcJhFrNkrvcnlbK6PeLRXCC6m3tQIgc18h9jet4WEPtQxTxnPnrouHWs7zZ2KfPyLF+I/3QOhBzRkkoE6IKj0O0FLRnd5STuktFZSOA3CNnNZaLv6wdqmQw3b/9xJ5MTz92XN2BjJ70TtrspZ5D/bKsE4sgGymsA7NFOahmYSsmIG1GWGld7nSmstDgNKayxTllNpcJpx+9xf7+RArm89TmhKmPfutQtZxljXYj18M7JQiMrvuZaxD00W8vpdiXdPjX8PUxjI9tblUpDZBCGROaUK/uRR1KeW2r6Ce4X7qicZYkPqPb8flzzig3DN8ET9EJ+ZCeA9ZXfcIq+tuYXbeTQ5YIzoyrUrpXS5Pm+5O2bzYSIEQmVI2AbsWkmRQ9HaNkIeQ8c6nl6imaYiKX40yNRC/ox673LNr32II74IsjtU1DWvTOMc6p32l1PGApDYZ4uTGRcR50yLBdaOqQdH2Gtp1ch+LxotdJz+ipdsrIbyTLMhkdrBkPniHnTun1iptPDwh3T1nY4kxZ+MiYiAfqbkvEbM3lghZ69v+RI/9e7WoP7GV1oG/HXiNAq3V2FdCO/fgR+bg1HGxDk4RIELhu8Z/WYXgydkbSsgmaGdIkzYEhV0HVR0kJzv7ktYH6YH2uZDcLsyDt0PocJvdh2/D39zC6pxy7ZfU2etLQnJYUkMxD7UpFomj+kT0WOM9vK44te9O3NAtzLAbQsmtDNY4x8Lu63s5TWoItsvBietsQWJDEQ4AZL+uiGZxX8yZa6w/vc1HZsctZIVvwQEmC7NjMurJAj3nK+HJ1/dS6kRifVHdrHrI1unCA7geQcd6vF+4KY++/mgKDnDzGKyOm4QkFr75p72WO+Gp11cm1BVGPHU6oRYK1IUiAThrzf/Cb3vHJEgn2fnAjTYdk4wrB256UI37eYFvhweS2oRQYQSQA9Y5522cJ2zhRLIkHRMhnhBFv5rC7qtfPn9JzFi7sGrGGwUhiMMz1xYYQPxz53TIJxjm/gnd5oEbQuZ/Juq/uvi3C5fre3NPTn98OIE0AAAAAElFTkSuQmCC" InformativeScreenshot="581c771594171efc20c343f53c9d7f3a.png" Selector="&lt;html app='chrome.exe' title='Compras*' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

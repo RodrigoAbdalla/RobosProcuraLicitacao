@@ -1,0 +1,201 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="abrir_portal_transparencia" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="arg_in_strUrl" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:abrir_portal_transparencia.arg_in_strUrl>
+    <InArgument x:TypeArguments="x:String" />
+  </this:abrir_portal_transparencia.arg_in_strUrl>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>998,1984</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>abrir_portal_transparencia_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Entrada:&#xA;arg_in_strUrl - URL do site Portal Transparencia&#xA;&#xA;Processamento: Acessa o site portal transparencia. Caso ocorra algum erro, ele tentará até três vezes&#xA;&#xA;Saida: -" DisplayName="abrir_portal_transparencia" sap:VirtualizedContainerService.HintSize="1008,1919" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="booVerifRetry" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="966,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Iniciando wf: abrir_portal_transparencia&quot;]" />
+    <ui:RetryScope DisplayName="Retry Scope - Portal Transparencia" sap:VirtualizedContainerService.HintSize="966,1463" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
+      <ui:RetryScope.ActivityBody>
+        <ActivityAction>
+          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="924,1217" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign - booVerifRetry" sap:VirtualizedContainerService.HintSize="882,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[booVerifRetry]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke KillAllProcesses workflow" sap:VirtualizedContainerService.HintSize="882,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\KillAllProcesses.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Detalhamento das Licitações - Portal da transparência" sap:VirtualizedContainerService.HintSize="882,773" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Always" ScopeGuid="7b96c77b-8fae-443b-aea9-9473e23988a7" Version="V2">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="848,557" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Detalhamento das'" sap:VirtualizedContainerService.HintSize="806,463" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="7b96c77b-8fae-443b-aea9-9473e23988a7" Timeout="10" Version="V1">
+                      <uix:NCheckState.IfExists>
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Página Portal Transparencia carregada&quot;]" />
+                        </Sequence>
+                      </uix:NCheckState.IfExists>
+                      <uix:NCheckState.IfNotExists>
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="376,247" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[&quot;Erro ao carregar página Portal Transparencia&quot;]" />
+                          <Throw DisplayName="Throw - PaginaNaoCarregada" Exception="[new SystemException(&quot;Erro ao carregar página Portal Transparencia&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                        </Sequence>
+                      </uix:NCheckState.IfNotExists>
+                      <uix:NCheckState.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.portaltransparencia.gov.br/licitacoes/consulta?ordenarPor=dataResultadoCompra&amp;direcao=desc" DesignTimeRectangle="396, 316, 848, 27" ElementType="Text" FriendlyName="'Detalhamento das'" FullSelectorArgument="&lt;webctrl tag='H2' aaname='Detalhamento das Licitações' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' aaname='Detalhamento das Licitações' type='' class='' check:text='Detalhamento das Licitações' /&gt;" Guid="9a203088-91c8-479e-961c-49420ad0d9b6" ImageBase64="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" InformativeScreenshot="2412e2dae66f341551b5ca821179bcbf.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Detalhamento das Licitações - Portal da transparência' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                      </uix:NCheckState.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NCheckState>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="1358, -8, 1936, 1056" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="7632742c97ffe3843e7d44afb6275bf1.png" Selector="&lt;html app='chrome.exe' title='Detalhamento das Licitações - Portal da transparência' /&gt;" Url="[arg_in_strUrl]" />
+              </uix:NApplicationCard.TargetApp>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NApplicationCard>
+            <Assign DisplayName="Assign - booVerifRetry" sap:VirtualizedContainerService.HintSize="882,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[booVerifRetry]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean">
+          <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True - booVerifRetry" Expression="[booVerifRetry]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+        </ActivityFunc>
+      </ui:RetryScope.Condition>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:RetryScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="966,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Finalizando wf: abrir_portal_transparencia&quot;]" />
+  </Sequence>
+</Activity>

@@ -1,0 +1,154 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="extrair_licitacoes" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="arg_in_strCaminhoRelatorio" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>959,1318</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>extrair_licitacoes_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Entrada:&#xA;arg_in_strCaminhoRelatorio - Caminho do relatorio de licitaçoes extraidas&#xD;&#xA;&#xA;Processamento: Verifica se houve algum resultado a partir dos filtros, se existir resultado há a extração da tabela&#xA;&#xA;Saida:" DisplayName="extrair_licitacoes" sap:VirtualizedContainerService.HintSize="969,1253" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dtLicitacoes" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Detalhamento das Licitações - Portal da transparência" sap:VirtualizedContainerService.HintSize="927,1059" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="03e37ab3-f91d-4f4e-bc8f-2a2a1becdb8a" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="893,843" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Nenhum registro'" sap:VirtualizedContainerService.HintSize="851,749" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="03e37ab3-f91d-4f4e-bc8f-2a2a1becdb8a" Version="V1">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Nenhum registro encontrado&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="421,533" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="379,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Extraindo licitações&quot;]" />
+                  <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dtLicitacoes]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='DETALHAR' ReferenceIdx='0' Name='DETALHAR'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='DATA DE RESULTADO DA COMPRA' ReferenceIdx='1' Name='DATA DE RESULTADO DA COMPRA'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='DATA DE ABERTURA' ReferenceIdx='2' Name='DATA DE ABERTURA'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='ÓRGÃO SUPERIOR LICITANTE' ReferenceIdx='3' Name='ÓRGÃO SUPERIOR LICITANTE'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='ÓRGÃO / ENTIDADE VINCULADA LICITANTE' ReferenceIdx='4' Name='ÓRGÃO / ENTIDADE VINCULADA LICITANTE'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='UNIDADE GESTORA' ReferenceIdx='5' Name='UNIDADE GESTORA'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='SITUAÇÃO' ReferenceIdx='6' Name='SITUAÇÃO'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='MODALIDADE DA LICITAÇÃO' ReferenceIdx='7' Name='MODALIDADE DA LICITAÇÃO'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='INSTRUMENTO LEGAL DE CONTRATAÇÃO' ReferenceIdx='8' Name='INSTRUMENTO LEGAL DE CONTRATAÇÃO'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='NÚMERO DA LICITAÇÃO' ReferenceIdx='9' Name='NÚMERO DA LICITAÇÃO'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='OBJETO DA LICITAÇÃO' ReferenceIdx='10' Name='OBJETO DA LICITAÇÃO'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='DETALHAR' attr='text' /&gt;&lt;column name='DATA DE RESULTADO DA COMPRA' attr='text' /&gt;&lt;column name='DATA DE ABERTURA' attr='text' /&gt;&lt;column name='ÓRGÃO SUPERIOR LICITANTE' attr='text' /&gt;&lt;column name='ÓRGÃO / ENTIDADE VINCULADA LICITANTE' attr='text' /&gt;&lt;column name='UNIDADE GESTORA' attr='text' /&gt;&lt;column name='SITUAÇÃO' attr='text' /&gt;&lt;column name='MODALIDADE DA LICITAÇÃO' attr='text' /&gt;&lt;column name='INSTRUMENTO LEGAL DE CONTRATAÇÃO' attr='text' /&gt;&lt;column name='NÚMERO DA LICITAÇÃO' attr='text' /&gt;&lt;column name='OBJETO DA LICITAÇÃO' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="379,156" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="Rows" MaximumResults="0" ScopeIdentifier="03e37ab3-f91d-4f4e-bc8f-2a2a1becdb8a" Version="V1">
+                    <uix:NExtractData.NextLink>
+                      <uix:TargetAnchorable BrowserURL="https://www.portaltransparencia.gov.br/licitacoes/consulta?paginacaoSimples=true&amp;tamanhoPagina=&amp;offset=&amp;direcaoOrdenacao=asc&amp;dataAberturaDe=09%2F08%2F2021&amp;dataAberturaAte=09%2F08%2F2022&amp;colunasSelecionadas=detalhar%2CdataResultadoCompra%2CdataAbertura%2CorgaoSuperior%2CorgaoEntidadeVinculada%2CunidadeGestora%2Csituacao%2Cmodalidade%2CinstrumentoLegal%2CnumeroLicitacao%2Cobjeto&amp;ordenarPor=dataResultadoCompra&amp;direcao=desc" DesignTimeRectangle="890, 819, 251, 36" ElementType="Text" FriendlyName="'Próxima'" FullSelectorArgument="&lt;webctrl parentid='lista_next' tag='A' visibility='1' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='lista_next' tag='A' type='' class='' aaname='Próxima  ' check:innerText='PRÓXIMA' /&gt;" Guid="289953e7-12b4-4fba-a8da-c93c4e164c81" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAP8AAAAoCAYAAAAxMyxdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARKSURBVHhe7Z2/axNhGMfvz7hVcOlmt2YtODTgEuhScJBM5XAqHSSbBAcpnTqV4FA4ByEOQhYhLoU4KBFFglpIoSkpRJsDlR4tlsfned83P65JbOjFHHf3/cBTcu/73g9IPs/7vG9LY11cXBACgUhfjMh/dnYWOEYgEMmMgPydToeOj4/p4OAAgUAkJI6OjpTXnueNl1/Eb7fbdHl5SQCAZNHtdkcSgJL//PxcdUB8AJKLiC+eB+SXkPIAAJBsZAkA+QFIIeI55AcghUB+AFIK5AcgpUB+AOLGH6Jqg8j5RuSbppsA+QGIEyL+ZyLrvY61rzdPAJAfgBjR+DIQP2wCgPxJwPfUH214YWpAEA9+sOxX5L9pAoD8sadJpRWLMg8r/AqkghklAMgfc7z9Eu28bITa+AExZAYJAPJHSO2xRZZlwl6g7KZLjV/X9ym8BrmbWVqw9ZhbS3na2vd0368aFe5YZK9XyLSQ98oh21qkwj5/NFou5fic3PMT1XfyPKfvs1IKVA/NZ1nzDEWqmTbBf71hnivYDuZMyAQA+SNEC24EOiwpIRe369f2EdVpa4n7l7hf2e1Tc2+N5c5Q8Z1+20VQ27Jp4zUf+zUqSjLYrOoPxTj5bZvH58htqSbmhNxVPofbg/L7VN2Ue2cow9cvvJnmYwb+GyESAOSPkIDg/LMosymv3eVN+1cfvS2yqJYWuw8nBBbc6s/2HlXWWVxOEKVtnsFthyrfVcd4+e865KwM2vSYPDlyjWH5vQo56twqle5ycnhkEgqIjkkJ4BqNIX+EDAvuH+jZPftMF97j+oJlOs/Sh+rQoGdq684WpwFDq0xrallg09oLI7UwtuznJLG73E8eqm3VJTeQhPTywbKWqcQfkfr2IieVAlVhf7T8Jip9HJXf/iRTwGQgf4RowU3czlD+aa3/ZgX6OJafDPqmlv/DFpfm+vzc3tBqfoL8NR6/aHGF4OlrSX+wAvGo/GDoHmr81QoEzJVJ4nNb848ZMwHIHyFBsYIM+k6ofJ/X4/fdwWbcVGW/3hew18tU25WNu6FkMUl+c42NPZfyZv0feMbvZW6X4yvR20sA8yWE+ALkj5Dp5GcOjaz92dts+K3uUEOZPrrh1xwW3q9TUY03CWSi/HJfWePrsdI7/Bzeyzy/1iV/D1X6q2rBNID5EFJ8AfJHyNTyM1rm7EC8wK/6bFq459BO71d9Jllkdwelvr9fUCW6SiD/kL9XVYzuPYxZVghmvPMK9s+NGYgvQH4A4sSMxBcgPwAxot6YjfgC5AcgTvwkKvK6K6z4AuQHIG6YBBBGfAHyAxBHzon8EOILkB+AlAL5AUgpkB+AlAL5AUgpkB+AlAL5AUgpI1/Uia/oBiD5nJ6ejv+K7k6nQ+12GwkAgATS7Xap1Wqpf/c+In8vAUhmkCUAAoFIRkipL14Piy8RkF9ClgBX2xAIRPJiRH4EApGGuKC/02YxxBz1Ce4AAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Detalhamento das Licitações - Portal da transparência' /&gt;" SearchSteps="Selector" Visibility="Visible" />
+                    </uix:NExtractData.NextLink>
+                    <uix:NExtractData.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="608, -431, 1390, 1198" FriendlyName="'DetalharData de'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="39acca13-21c6-4286-9069-722d64d93698" InformativeScreenshot="bdee25f62025fb5fa976d027d2aa031d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Detalhamento das Licitações - Portal da transparência' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+                    </uix:NExtractData.Target>
+                  </uix:NExtractData>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke gerar_relatorio_licitacoes workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="PROJETO\PORTAL TRANSPARENCIA\gerar_relatorio_licitacoes.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="arg_in_dtLicitacoes">[dtLicitacoes]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="arg_in_strCaminhoRelatorio">[arg_in_strCaminhoRelatorio]</InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.portaltransparencia.gov.br/licitacoes/consulta?paginacaoSimples=true&amp;tamanhoPagina=&amp;offset=&amp;direcaoOrdenacao=asc&amp;palavraChave=automa%C3%A7%C3%A3o&amp;dataAberturaDe=09%2F08%2F2021&amp;dataAberturaAte=09%2F08%2F2022&amp;situacao=12000001&amp;colunasSelecionadas=detalhar%2CdataResultadoCompra%2CdataAbertura%2CorgaoSuperior%2CorgaoEntidadeVinculada%2CunidadeGestora%2Csituacao%2Cmodalidade%2CinstrumentoLegal%2CnumeroLicitacao%2Cobjeto" DesignTimeRectangle="609, 864, 902, 35" ElementType="Text" FriendlyName="'Nenhum registro'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' aaname='Nenhum registro encontrado' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' aaname='Nenhum registro encontrado' class='dataTables_empty' check:text='Nenhum registro encontrado' /&gt;" Guid="a8b10d3d-f309-457a-85c4-144a6ea84b15" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA4oAAAAnCAYAAABJ57ZVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATYSURBVHhe7dxLTuQ6FAbgWiNSb6hVW4GlwCIY9oAVMGGSG9t5+DguSIpCfWm+TzpS5+XYJwzyK6U+vb29Dc/Pz8Pr66s6UHp2u9LL60vvjpV+3b709OPSo2OlX3+v9P7/WZ7LdaVv11XqW8qHqZagqJRSSimllFLqZ9cmKAIAAPBzCYoAAAAEgiIAAACBoAgAAEAgKAIAABAIigAAAASCIgAAAIGgCAAAQCAoAgAAEAiKAAAABIIiAAAAwVVB8fH3aTj9uh9epu3Zy8PdcPfQ7oXbSn9/56dpAwAAuLnrg+LptAmFtwqK/0Tg/HM/3J3uhvs/0zY3IygCAMDXujoonh9SEDoPj9O+RFA86mW4/xV7+M95Ot/8WQqKAADwta4PiuOLev6y+HuNOZuAN4aE9OWxVBWIcnh4HEPSfKw3zv1wXq6tv14+jvubcJXus/wUdjw+/vtxHCOMnb/wzeNdCmfl2pd53vWYy7UxpOQeVMdy5bXU80yBMJ5zfopjnqavj2nt56f1/PleaX97bl+819q3KZSGZ9KME3rU9nzdXz+r955lnPO8v9fjtj/x+YRxxjHaoLi/NwAAwB6fCopzgKjDzBIucuhYX/jzy/wcvHJIqF/o0zjrdnnxr8JCGCudG4PEJiiOc9qEnOX4NH4ddhbTueFYCTFLMKl/UhruO0rby7XrPN+/X1xLWXsMO6F3Se5f04NJejbt2svcpzBWzSPOqz631u4v4yz32PEs1/kkZbzYjzH8VfcN82rXmrfj39ze3gAAAPt8MiiO0ov59KJeh4IYWJIUEKYX+HRNE5zqMbfhIoWTOXxU48yqOfSOh/kmnfsXMeRkYexiGa89FsZt1tsNL9u5hpCUNUF1sllT0oTzZO1l3cNJOn+ef2edWW9/e92hZ9npcasaM421/VuYxz/QGwAAYLfPB8XpZT29zLdBcf054FxTQDgcLuqQsw1XMcxsj2+CQ+f+xYWxN+tYw0tcZ31tO1bajtf27vf+2lfpvvG8UQ6K9XymymvtjPNB4Mt6++tA2jn+/rPs9DjPrTfnONZs3XegNwAAwG43CIqjOTiMoWF+Qe+94C8Oh4u/HBS75yZpXm3omfUCUVJCUZnP9pz+2re97Pa3Dn4bnVDVBsXetb39HwTM959lu+ayvnBONWYa63I/DvQGAADY7TZBcZQCQfoStLzUp5f9blAaHQ4Xdchpw0HZ/rKgmPddCB71l7WN3ljFOp90Tgxv27WXfSGsXext6UV7fVH3cBKC5aV1tvube+x4lvF425cLz3O+pl1r7nkz/q7eAAAAe90sKM6BIoSU/NJe/Zzw6q9QTciZwkIZd9z/1AaeGBQ+FxSTsrZ1LetcclAJx+br17E251T3Xo+VMbdrL+IYTeALpqC1nDuvvelhEoLiKPS1fpbN+uveffAsw7X5vE6Pw9/J9Dy7PRprnG/6H23r57m/NwAAwB5XBUWSEsjaUHcp6AEAAHwXguLVOl/opvAYvl4CAAB8M4LiZzQ/1UzlayIAAPDdCYoAAAAEgiIAAACBoAgAAEAgKAIAABAIigAAAASCIgAAAIGgCAAAQCAoAgAAEAiKAAAABIIiAAAAQTcoKqWUUkoppZT62RWColJKKaWUUkopNZegqJRSSimllFKqqrfhP7xt00q6uEONAAAAAElFTkSuQmCC" InformativeScreenshot="b944ed4fcd8509c83d2e291be49167a8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Detalhamento das Licitações - Portal da transparência' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-1928, -317, 1936, 1056" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAaXSURBVFhH1ZZtbFRlFsfnEyKKjoKiInRooW/TTu9MW3lpaW87hb4hLfBl3WwXTTSriQaN2V3Xt4IxJhplWgoU+kKLoGyWIChqVhY6tLyK7vbLGokmjkBb2ipzS5EEuHee4/8597mdVirBtw+e5JdzztNnzu95bjqT6/rdRETX3N+UzNMHS3JDA8U53YPFOQYQCmMwmBPuL84J9Qazq9VHfp2QYghrB4qyo44QPaEXkv6ibBrQZc6hfs7ZMkcG9EDtWV3zqDE/LwaDuasgMRwRSzizhM6OEODMa4UBYfeg0P/V2QJtpRr30wI3DUkRD1bCfgzv122BrCFjYZ/MBf5R2U+9BTZ9TCCkxl5fQNA2cgu+icQW8EAIkFkke0dmo1HvQo16ALLozc8Sqm5T468d8rTOLRwBy9RwR9gnhzuSuNDOUpqfNZLPgJ48nzid57v2k+jRAw/yDRyBlKnBUiSH9+THBTwYfU+e3fNanm8MkDIja/N9q5RubGg7qj0ng/6IcxNbYt+Ih4+S9Jbl07mXX6DzrY3MUMNTNPRqJRlr/GS8BNZoQtZDnDXZqzVNDL2iGdStuZU2HoEdy2tXPxNUt8oSZ/Js6ZkFPiHX5Oml+OKH79KPhfhmL1ndS8j6OJvM436yjgdQ+4WFOqaydVwT5jFttdLGI/D2skjgrWXUWZVrPzIpRj69IFMi+laUkdnXy6K93Zfp0fbvqKpumJH13u4r/De61ItDVEjRWI5ljcq+6JinoL21rMq/vZokNa+VOlI6PT9TnJqfSb3LS1neZ8ToL23fUU7t0Lj8sfEC7+FDfJInRRBKMq/CPJShKz0OsLW6Lmt7ldAk26rogxW5dGpehmBwgAvv7+HLPdA4TNkvGlcDuVM/suUC7xWDeyDyCuuol0Y4JnM6EzuaFv9GQBrOerOKst5cShryog0V9FmhjyJzvXSmejEPfO9/l8kPgf8Fm4CsgZMdZC/3yrBO3CfMo2kQjiYVh0ql2JG0bqV3uXxblxq+rfcTMvnakcErj+dT5L50MfDXJ3jYw7iZBvFYouNg8F4ZsS+fgTAFwmSbIwxJzCPJhtK7XJntSwiIzDbOzLzNFfT/fK8wmtbzsPI3hijr+ejVQPjDvuz1If5M7HQ9ZHPIPDybLAnq0VnpXa4MiDPaKgXndpW3VNKqvxdSdHMDDyvF0EwIRuP7Qe8g98qIncIBDidBmCisw7Nw+yQcJhFrNkrvcnlbK6PeLRXCC6m3tQIgc18h9jet4WEPtQxTxnPnrouHWs7zZ2KfPyLF+I/3QOhBzRkkoE6IKj0O0FLRnd5STuktFZSOA3CNnNZaLv6wdqmQw3b/9xJ5MTz92XN2BjJ70TtrspZ5D/bKsE4sgGymsA7NFOahmYSsmIG1GWGld7nSmstDgNKayxTllNpcJpx+9xf7+RArm89TmhKmPfutQtZxljXYj18M7JQiMrvuZaxD00W8vpdiXdPjX8PUxjI9tblUpDZBCGROaUK/uRR1KeW2r6Ce4X7qicZYkPqPb8flzzig3DN8ET9EJ+ZCeA9ZXfcIq+tuYXbeTQ5YIzoyrUrpXS5Pm+5O2bzYSIEQmVI2AbsWkmRQ9HaNkIeQ8c6nl6imaYiKX40yNRC/ox673LNr32II74IsjtU1DWvTOMc6p32l1PGApDYZ4uTGRcR50yLBdaOqQdH2Gtp1ch+LxotdJz+ipdsrIbyTLMhkdrBkPniHnTun1iptPDwh3T1nY4kxZ+MiYiAfqbkvEbM3lghZ69v+RI/9e7WoP7GV1oG/HXiNAq3V2FdCO/fgR+bg1HGxDk4RIELhu8Z/WYXgydkbSsgmaGdIkzYEhV0HVR0kJzv7ktYH6YH2uZDcLsyDt0PocJvdh2/D39zC6pxy7ZfU2etLQnJYUkMxD7UpFomj+kT0WOM9vK44te9O3NAtzLAbQsmtDNY4x8Lu63s5TWoItsvBietsQWJDEQ4AZL+uiGZxX8yZa6w/vc1HZsctZIVvwQEmC7NjMurJAj3nK+HJ1/dS6kRifVHdrHrI1unCA7geQcd6vF+4KY++/mgKDnDzGKyOm4QkFr75p72WO+Gp11cm1BVGPHU6oRYK1IUiAThrzf/Cb3vHJEgn2fnAjTYdk4wrB256UI37eYFvhweS2oRQYQSQA9Y5522cJ2zhRLIkHRMhnhBFv5rC7qtfPn9JzFi7sGrGGwUhiMMz1xYYQPxz53TIJxjm/gnd5oEbQuZ/Juq/uvi3C5fre3NPTn98OIE0AAAAAElFTkSuQmCC" InformativeScreenshot="ef03a689dac54b38ce7af47d312e9c9a.png" Selector="&lt;html app='chrome.exe' title='Detalhamento das Licitações - Portal da transparência' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
